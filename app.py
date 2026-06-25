@@ -1,10 +1,13 @@
+from dotenv import load_dotenv
+load_dotenv()
 import streamlit as st
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_groq import ChatGroq
 import tempfile
 
-api_key = "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"
+import os
+api_key = st.secrets["GROQ_API_KEY"]
 
 llm = ChatGroq(
     model="llama-3.3-70b-versatile",
